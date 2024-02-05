@@ -2,11 +2,17 @@
 service: ted-blog
 
 # Name of the container image.
-image: user/ted-blog
+image: etmartinkazoo/ted-blog
 
 # Deploy to these servers.
 servers:
-  - 104.131.64.11
+  web:
+    hosts:
+      - 161.35.12.128
+    labels:
+      traefik.http.routers.maildown-web.rule: 'Host(`tedmartin.us`)'
+      traefik.http.routers.maildown-web.entrypoints: websecure
+      traefik.http.routers.maildown-web.tls.certresolver: letsencrypt
 
 # Credentials for your image host.
 registry:
@@ -20,25 +26,25 @@ registry:
 
 # Inject ENV variables into containers (secrets come from .env).
 # Remember to run `kamal env push` after making changes!
-# env:
+env:
 #   clear:
 #     DB_HOST: 192.168.0.2
-#   secret:
-#     - RAILS_MASTER_KEY
+  secret:
+    - RAILS_MASTER_KEY
 
 # Use a different ssh user than root
 # ssh:
 #   user: app
 
 # Configure builder setup.
-# builder:
-#   args:
-#     RUBY_VERSION: 3.2.0
-#   secrets:
-#     - GITHUB_TOKEN
-#   remote:
-#     arch: amd64
-#     host: ssh://app@192.168.0.1
+builder:
+  args:
+    RUBY_VERSION: 3.1.4
+  # secrets:
+  #   - GITHUB_TOKEN
+  remote:
+    arch: amd64
+    # host: ssh://app@192.168.0.1
 
 # Use accessory services (secrets come from .env).
 # accessories:
@@ -64,10 +70,19 @@ registry:
 #       - data:/data
 
 # Configure custom arguments for Traefik
-# traefik:
-#   args:
-#     accesslog: true
-#     accesslog.format: json
+traefik:
+  options:
+    publish:
+      - 443:443
+    volume:
+      - "letsencrypt:/letsencrypt"
+  args:
+    entrypoints.web.address: ':80'
+    entrypoints.websecure.address: ':443'
+    certificatesResolvers.letsencrypt.acme.httpchallenge: true
+    certificatesResolvers.letsencrypt.acme.httpchallenge.entrypoint: web
+    certificatesResolvers.letsencrypt.acme.email: info@brem.io
+    certificatesResolvers.letsencrypt.acme.storage: /letsencrypt/acme.json
 
 # Configure a custom healthcheck (default is /up on port 3000)
 # healthcheck:

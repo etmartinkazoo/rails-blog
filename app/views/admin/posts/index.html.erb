@@ -10,11 +10,16 @@
   <tbody>
   <% @posts.each do |post| %>
     <tr>
-      <td><%= link_to post.name, edit_admin_post_path(post) %></td>
+      <% if post.name %>
+        <td><%= link_to post.name, edit_admin_post_path(post) %></td>
+      <% end %>
       <td><%= post.draft === true ? 'Draft' : 'Published' %></td>
-      <td><%= post.publishedOn %></td>
+      <% if post.publishedOn %>
+        <td><%= post.publishedOn %></td>
+      <% end %>
       <td>
-        <%= link_to image_tag('trash'), admin_post_path(post), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        <%#= link_to image_tag('trash'), admin_post_path(post), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        <%= link_to "Delete", admin_post_path(post), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
       </td>
     </tr>
   <% end %>
