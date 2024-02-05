@@ -1,0 +1,21 @@
+<%= render "partials/top-header", resource_name: "Roles", resource_action_path: new_admin_role_path, resource_action_name: 'New Role' %>
+<table>
+  <thead>
+    <tr>
+      <th width="35px">ID</th>
+      <th scope="col">Name</th>
+      <th width="35px">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @roles.each do |role| %>
+      <tr>
+        <td><%= role.id %></td>
+        <td><%= link_to role.name, edit_admin_role_path(role) %></td>
+        <td>
+          <%= link_to image_tag('trash'), admin_role_path(role), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

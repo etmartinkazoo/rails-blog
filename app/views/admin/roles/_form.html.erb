@@ -1,0 +1,17 @@
+<%= form_with(model: [:admin, role]) do |form| %>
+  <div class="two-column">
+    <div>
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+      <div class="two-buttons">
+        <%= form.submit %>
+        <% if current_page?(new_admin_role_path) %>
+          <%= form.submit 'Create and Add', name: 'create_and_add', class: 'outline-button' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div></div>
+<% end %>

@@ -1,0 +1,27 @@
+<%= render "partials/top-header", resource_name: "Users", resource_action_path: new_admin_user_path, resource_action_name: 'New User' %>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Roles</th>
+      <th width="35px">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, edit_admin_user_path(user) %></td>
+        <td><%= user.email %></td>
+        <td>
+          <% user.roles.each do |role| %>
+            <%= role.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to image_tag('trash'), admin_user_path(user), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

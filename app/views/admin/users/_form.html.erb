@@ -1,0 +1,44 @@
+<%= form_with(model: [:admin, user]) do |form| %>
+  <div class="two-column">
+    <div>
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+        <% if user.errors[:name].present? %>
+          <p class="error"><%= "Name #{user.errors[:name][0]}" %></p>
+        <% end %>
+      </div>
+      <div class="form-group">
+        <%= form.label :email %>
+        <%= form.text_field :email %>
+        <% if user.errors[:email].present? %>
+          <p class="error"><%= "Email #{user.errors[:email][0]}" %></p>
+        <% end %>
+      </div>
+      <div class="form-group">
+        <%= form.label :password %>
+        <%= form.password_field :password %>
+        <% if user.errors[:password].present? %>
+          <p class="error"><%= "Password #{user.errors[:password][0]}" %></p>
+        <% end %>
+      </div>
+      <div class="form-group">
+        <%= form.label :password_confirmation %>
+        <%= form.password_field :password_confirmation %>
+        <% if user.errors[:password_confirmation].present? %>
+          <p class="error"><%= "Password_confirmation #{user.errors[:password_confirmation][0]}" %></p>
+        <% end %>
+      </div>
+      <% if admin?(current_user) %>
+        <div class="form-group">
+          <%= form.label :role_ids, "Roles" %>
+          <%= form.collection_select(:role_ids, Role.order('name'), :id, :name, { selected: user.role_ids == [] ? [] : user.role_ids }, {multiple: true}) %>
+        </div>
+      <% end %>
+      <p>
+        <%= form.submit %>
+      </p>
+    </div>
+    <div></div>
+  </div>
+<% end %>
