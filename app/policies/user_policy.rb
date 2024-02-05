@@ -18,7 +18,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    true unless user.role_ids.include?(3)
   end
 
   def new?
