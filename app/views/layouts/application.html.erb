@@ -14,6 +14,14 @@
     <%= render "partials/nav" %>
     <div class="container-small">
       <%= yield %>
+      <footer>
+        <% if current_user %>
+          <%= link_to "Admin", admin_posts_path %>
+          <%= link_to "Logout", session_path(current_user), class: 'button-primary', data: { turbo_method: :delete } %>
+        <% else %>
+          <%= link_to "Login", new_session_path %>
+        <% end %>
+      </footer>
     </div>
   </body>
 </html>

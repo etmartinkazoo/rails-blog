@@ -1,6 +1,5 @@
 class Admin::UsersController < Admin::AdminController
   layout 'admin'
-  skip_before_action :require_login, only: [:new, :create]
 
   def index
     @users = policy_scope(User)

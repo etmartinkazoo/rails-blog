@@ -11,6 +11,7 @@ class Admin::PostsController < Admin::AdminController
   # GET /posts/new
   def new
     @post = Post.new
+    @post.publishedOn = Time.now
     authorize([:admin, @post])
   end
 

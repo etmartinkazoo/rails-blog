@@ -46,7 +46,7 @@ class Admin::RolesController < Admin::AdminController
     authorize @role
     respond_to do |format|
       if @role.update(role_params)
-        format.html { redirect_to admin_role_url(@role), notice: "Role was successfully updated." }
+        format.html { redirect_to admin_roles_url, notice: "Role was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
