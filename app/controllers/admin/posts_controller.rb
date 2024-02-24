@@ -5,7 +5,7 @@ class Admin::PostsController < Admin::AdminController
   # GET /posts or /posts.json
   def index
     @posts = Post.order(publishedOn: :desc)
-    authorize([:admin, @post])
+    authorize([:admin, @posts])
   end
 
   # GET /posts/new
