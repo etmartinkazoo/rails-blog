@@ -35,7 +35,8 @@ env:
 # Use a different ssh user than root
 # ssh:
 #   user: app
-
+volumes:
+  - 'storage:/rails/storage'
 # Configure builder setup.
 builder:
   args:
