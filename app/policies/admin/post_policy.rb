@@ -1,4 +1,4 @@
-class PostPolicy < ApplicationPolicy
+class Admin::PostPolicy < ApplicationPolicy
   def index?
     user.role_ids.include?(1) || user.role_ids.include?(2)
   end

@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::AdminController
   layout 'admin'
   skip_before_action :require_login, only: [:new, :create]
 

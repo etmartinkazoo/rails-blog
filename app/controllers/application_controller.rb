@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
-  before_action :require_login
   include Pundit::Authorization
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 

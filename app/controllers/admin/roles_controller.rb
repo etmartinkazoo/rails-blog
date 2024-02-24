@@ -1,4 +1,4 @@
-class Admin::RolesController < ApplicationController
+class Admin::RolesController < Admin::AdminController
   layout 'admin'
   before_action :set_role, only: %i[ show edit update destroy ]
 
