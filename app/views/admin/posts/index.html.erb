@@ -1,5 +1,4 @@
 <%= render "partials/top-header", resource_name: "Posts", resource_action_path: new_admin_post_path, resource_action_name: 'New Post' %>
-
 <table>
   <tr>
     <th>Name</th>
@@ -8,20 +7,19 @@
     <th width="35px">Actions</th>
   </tr>
   <tbody>
-  <% @posts.each do |post| %>
-    <tr>
-      <% if post.name %>
-        <td><%= link_to post.name, edit_admin_post_path(post) %></td>
-      <% end %>
-      <td><%= post.draft === true ? 'Draft' : 'Published' %></td>
-      <% if post.publishedOn %>
-        <td><%= post.publishedOn %></td>
-      <% end %>
-      <td>
-        <%#= link_to image_tag('trash'), admin_post_path(post), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-        <%= link_to "Delete", admin_post_path(post), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-      </td>
-    </tr>
-  <% end %>
+    <% @posts.each do |post| %>
+      <tr>
+        <% if post.name %>
+          <td><%= link_to post.name, edit_admin_post_path(post) %></td>
+        <% end %>
+        <td><%= post.draft === true ? 'Draft' : 'Published' %></td>
+        <% if post.publishedOn %>
+          <td><%= post.publishedOn %></td>
+        <% end %>
+        <td>
+          <%= link_to image_tag('trash'), admin_post_path(post), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>

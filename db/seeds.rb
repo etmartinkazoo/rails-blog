@@ -11,3 +11,9 @@
 ['Admin', 'Editor', 'User'].each do |role|
   Role.find_or_create_by!(name: role)
 end
+
+User.create!(email: 'test@brem.io', password: 'password')
+
+u = User.first
+u.role_ids = [1]
+u.save
