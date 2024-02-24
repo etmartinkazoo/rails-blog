@@ -5,23 +5,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
     <%= render "partials/nav" %>
     <div class="container-small">
       <%= yield %>
-      <footer>
-        <% if current_user %>
-          <%= link_to "Admin", admin_posts_path %>
-          <%= link_to "Logout", session_path(current_user), class: 'button-primary', data: { turbo_method: :delete } %>
-        <% else %>
-          <%= link_to "Login", new_session_path %>
-        <% end %>
-      </footer>
     </div>
+    <footer>
+      <% if current_user %>
+        <%= link_to "Admin", admin_posts_path %>
+        <%= link_to "Logout", session_path(current_user), class: 'button-primary', data: { turbo_method: :delete } %>
+      <% else %>
+        <%= link_to "Login", new_session_path %>
+      <% end %>
+    </footer>
   </body>
 </html>
