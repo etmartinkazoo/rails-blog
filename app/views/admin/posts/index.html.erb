@@ -2,6 +2,7 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Content</th>
     <th>Draft</th>
     <th>Published On</th>
     <th width="35px">Actions</th>
@@ -11,6 +12,11 @@
       <tr>
         <% if post.name %>
           <td><%= link_to post.name, edit_admin_post_path(post) %></td>
+        <% end %>
+        <% if post.content.present? %>
+          <td><%= display_content post.content %></td>
+        <% else %>
+          <td><%= "N/A" %></td>
         <% end %>
         <td><%= post.draft === true ? 'Draft' : 'Published' %></td>
         <% if post.publishedOn %>
