@@ -1,7 +1,7 @@
-<% @posts.each do |post| %>
+<% @posts.order(created_at: :desc).each do |post| %>
   <div class="index-post shadow">
     <h2><%= link_to post.name, post %></h2>
     <small><%= post.publishedOn.strftime("%B %e, %Y") %></small>
-    <p><%= truncate(strip_tags(post.rich_text_content.to_s), length: 250) %></p>
+    <p><%= display_content post.content.to_s %></p>
   </div>
 <% end %>
