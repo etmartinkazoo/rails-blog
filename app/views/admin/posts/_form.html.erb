@@ -1,4 +1,6 @@
-<%= form_with(model: [:admin, post]) do |form| %>
+<%= form_with(model: [:admin, post], data: {
+  controller: 'editor'
+}) do |form| %>
   <div class="two-column">
     <div class="col-one">
   <div class="form-group">
@@ -7,11 +9,22 @@
     <% if post.errors[:name].present? %><p class="error"><%= "Name #{post.errors[:name][0]}" %></p><% end %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :content %>
-    <%= form.rich_text_area :content %>
-    <% if post.errors[:content].present? %><p class="error"><%= "Content #{post.errors[:content][0]}" %></p><% end %>
+  <%= form.hidden_field :content, id: "posts_content_hidden", data: {'editor-target': 'hidden_content' } %>
+
+  <div id="posts_content"
+    data-editor-target="content"
+    style="background: white"
+  >
   </div>
+  <%
+=begin%>
+ <div class="form-group">
+    <%= form.label :content %>
+    <%= form.text_area :content, data: { 'editor-target': 'content' } %>
+    <% if post.errors[:content].present? %><p class="error"><%= "Content #{post.errors[:content][0]}" %></p><% end %>
+  </div> 
+<%
+=end%>
 
 
 
