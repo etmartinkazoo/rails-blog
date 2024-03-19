@@ -1,5 +1,5 @@
 <div class="post shadow">
   <h2><%= @post.name %></h2>
   <small><%= @post.publishedOn.strftime("%B %e, %Y") %></small>
-  <p><%= @post.content %></p>
+  <p><%= display_content(post.content) %></p>
 </div>

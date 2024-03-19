@@ -4,3 +4,8 @@ import "controllers"
 
 import "trix"
 import "@rails/actiontext"
+
+
+$(document).on("input", ".editable_div", function(e) {
+  $(this).html($(this).text().replace(/[\n\r]/g, ""));
+});
