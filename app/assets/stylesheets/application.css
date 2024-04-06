@@ -195,7 +195,8 @@ tr:nth-child(even) {
 		font-size: 18px;
 	}
 	& .trix-content {
-		min-height: 200px;
+		min-height: 300px;
+		max-width: 935px;
 		background-color: white;
 	}
 }
