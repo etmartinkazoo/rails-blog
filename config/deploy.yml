@@ -40,7 +40,7 @@ volumes:
 # Configure builder setup.
 builder:
   args:
-    RUBY_VERSION: 3.3.0
+    RUBY_VERSION: 3.3.1
   # secrets:
   #   - GITHUB_TOKEN
   remote:
