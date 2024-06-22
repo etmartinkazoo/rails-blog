@@ -11,31 +11,27 @@
   <body>
     <div class="admin">
       <div class="sidebar">
-        <h3>Dashboard</h3>
+        <h3>Content</h3>
         <div class="menu">
           <div class="menu-resources">
-            <%= link_to "Posts", admin_posts_path %>
+            <div class="menu-item"><%= image_tag('icons/article.svg') %><%= link_to "Posts", admin_posts_path %></div>
           </div>
           <div class="menu-settings">
             <h3>Settings</h3>
-            <%= link_to "Roles", admin_roles_path %>
-            <%= link_to "Users", admin_users_path %>
-            <%= link_to "View Website", root_path %>
+            <div class="menu-item"><%= image_tag('icons/security.svg') %><%= link_to "Roles", admin_roles_path %></div>
+            <div class="menu-item"><%= image_tag('icons/users.svg') %><%= link_to "Users", admin_users_path %></div>
+            <div class="menu-item"><%= image_tag('icons/website.svg') %><%= link_to "View Website", root_path, target: "_blank" %></div>
           </div>
         </div>
       </div>
       <div class="admin-content">
         <% if notice %>
-          <div id="notification" onclick="hideNotification()"><%= notice %></div>
+          <div data-controller="hide">
+            <div class="notification" data-hide-target="element"><%= notice %></div>
+          </div>
         <% end %>
         <%= yield %>
       </div>
     </div>
-    <script>
-      function hideNotification() {
-        const notification = document.querySelector('#notification');
-        notification.style.display = 'none';
-      }
-    </script>
   </body>
 </html>

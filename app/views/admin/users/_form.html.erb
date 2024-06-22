@@ -1,6 +1,6 @@
 <%= form_with(model: [:admin, user]) do |form| %>
   <div class="two-column">
-    <div>
+    <div class="col-one">
       <div class="form-group">
         <%= form.label :name %>
         <%= form.text_field :name %>
@@ -29,16 +29,17 @@
           <p class="error"><%= "Password_confirmation #{user.errors[:password_confirmation][0]}" %></p>
         <% end %>
       </div>
+      <p>
+        <%= form.submit %>
+      </p>
+    </div>
+    <div class="col-two">
       <% if admin?(current_user) %>
         <div class="form-group">
           <%= form.label :role_ids, "Roles" %>
           <%= form.collection_select(:role_ids, Role.order('name'), :id, :name, { selected: user.role_ids == [] ? [] : user.role_ids }, {multiple: true}) %>
         </div>
       <% end %>
-      <p>
-        <%= form.submit %>
-      </p>
     </div>
-    <div></div>
   </div>
 <% end %>

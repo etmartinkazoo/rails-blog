@@ -1,5 +1,5 @@
 <% @posts.each do |post| %>
-  <div class="index-post shadow">
+  <div class="index-post">
     <h2><%= link_to post.name, post %></h2>
     <small><%= post.publishedOn.strftime("%B %e, %Y") %></small>
     <p><%= truncate(strip_tags(post.rich_text_content.to_s), length: 250) %></p>

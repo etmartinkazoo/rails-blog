@@ -11,7 +11,11 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to user.name, edit_admin_user_path(user) %></td>
+        <% if user.name %>
+          <td><%= link_to user.name, edit_admin_user_path(user) %></td>
+        <% else %>
+          <td><%= link_to user.email, edit_admin_user_path(user) %></td>
+        <% end %>
         <td><%= user.email %></td>
         <td>
           <% user.roles.each do |role| %>
@@ -19,7 +23,7 @@
           <% end %>
         </td>
         <td>
-          <%= link_to image_tag('trash'), admin_user_path(user), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          <%= link_to image_tag('icons/trash.svg'), admin_user_path(user), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
         </td>
       </tr>
     <% end %>

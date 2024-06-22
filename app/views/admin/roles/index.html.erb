@@ -13,7 +13,7 @@
         <td><%= role.id %></td>
         <td><%= link_to role.name, edit_admin_role_path(role) %></td>
         <td>
-          <%= link_to image_tag('trash'), admin_role_path(role), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+          <%= link_to image_tag('icons/trash.svg'), admin_role_path(role), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
         </td>
       </tr>
     <% end %>
