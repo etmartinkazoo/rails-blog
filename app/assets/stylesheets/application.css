@@ -226,7 +226,7 @@ tr:nth-child(even) {
 	}
 	& .trix-content {
 		min-height: 300px;
-		max-width: 935px;
+		max-width: 822px;
 		background-color: white;
 		border-radius: var(--border-radius);
 	}
