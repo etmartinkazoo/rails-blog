@@ -278,12 +278,30 @@ input[type='submit'] {
 
 footer {
 	margin-top: 50px;
-	width: 100%;
-	padding: 50px;
+	position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+	padding: 25px;
 	background-color: #f7f7f7;
+	text-align: center;
+	& .footer-links {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 15px;
+		& a {
+			margin: 0 10px;
+		}
+	}
 	& a {
 		margin: 0;
 		text-align: center;
 		display: block;
+	}
+}
+
+@media (max-width: 768px) {
+	nav .container {
+		padding: 0;
 	}
 }
