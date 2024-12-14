@@ -8,7 +8,6 @@ servers:
 builder:
   arch:
     - amd64
-  driver: docker
   remote: ssh://root@178.156.154.90:22
   local: false
 
