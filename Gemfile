@@ -1,42 +1,18 @@
 source "https://rubygems.org"
-
-ruby "3.3.6"
-
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.0"
-
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "propshaft"
-
-# Use sqlite3 as the database for Active Record
-gem "sqlite3"
-
-gem "solid_queue"
-
-# Use the Puma web server [https://github.com/puma/puma]
-gem "puma"
-
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails"
-
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
-
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
-
 gem "bcrypt"
-
-gem 'pundit'
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ windows jruby ]
-
-# Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
-
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing"
+gem "importmap-rails"
+gem "propshaft"
+gem "puma"
+gem "rails", "~> 8.0.0"
+gem "solid_queue"
+gem "sqlite3"
+gem "stimulus-rails"
+gem "turbo-rails"
+gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem 'pundit'
+ruby "3.3.6"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
