@@ -316,6 +316,10 @@ footer {
   }
 }
 
+.trix-content {
+  line-height: 1.6;
+}
+
 @media (max-width: 768px) {
   /* nav {
 		padding: 1em 0;
