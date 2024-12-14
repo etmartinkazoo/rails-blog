@@ -1,29 +1,29 @@
 class Admin::PostsController < Admin::AdminController
-  layout 'admin'
+  layout "admin"
   before_action :set_post, only: %i[ edit update destroy ]
 
   # GET /posts or /posts.json
   def index
     @posts = Post.order(publishedOn: :desc)
-    authorize([:admin, @posts])
+    authorize([ :admin, @posts ])
   end
 
   # GET /posts/new
   def new
     @post = Post.new
     @post.publishedOn = Time.now
-    authorize([:admin, @post])
+    authorize([ :admin, @post ])
   end
 
   # GET /posts/1/edit
   def edit
-    authorize([:admin, @post])
+    authorize([ :admin, @post ])
   end
 
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
-    authorize([:admin, @post])
+    authorize([ :admin, @post ])
     respond_to do |format|
       if @post.save
         format.html { redirect_to admin_posts_path, notice: "Post was successfully created." }
@@ -35,7 +35,7 @@ class Admin::PostsController < Admin::AdminController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
-    authorize([:admin, @post])
+    authorize([ :admin, @post ])
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to admin_posts_path, notice: "Post was successfully updated." }
@@ -48,7 +48,7 @@ class Admin::PostsController < Admin::AdminController
   # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy!
-    authorize([:admin, @post])
+    authorize([ :admin, @post ])
     respond_to do |format|
       format.html { redirect_to admin_posts_url, notice: "Post was successfully destroyed." }
     end

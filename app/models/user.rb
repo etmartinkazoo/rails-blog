@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   private
   def set_roles
-    self.role_ids = [3]
+    self.role_ids = [ 3 ]
   end
   def downcase_email
     self.email = email.downcase

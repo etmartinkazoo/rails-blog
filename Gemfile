@@ -11,14 +11,12 @@ gem "sqlite3"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
-gem 'pundit'
+gem "pundit"
 ruby "3.3.6"
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem "rubocop-rails-omakase", require: false
   gem "web-console"
-  gem "rubocop"
-
 end
 
 group :development, :test do

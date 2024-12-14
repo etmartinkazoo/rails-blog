@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::AdminController
-  layout 'admin'
+  layout "admin"
 
   def index
     @users = policy_scope(User)

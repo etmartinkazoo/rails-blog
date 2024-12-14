@@ -1,5 +1,5 @@
 class Admin::RolesController < Admin::AdminController
-  layout 'admin'
+  layout "admin"
   before_action :set_role, only: %i[ show edit update destroy ]
 
   # GET /roles or /roles.json
