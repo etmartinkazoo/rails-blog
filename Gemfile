@@ -12,7 +12,7 @@ gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "pundit"
-ruby "3.3.6"
+ruby "3.4.2"
 
 group :development do
   gem "rubocop-rails-omakase", require: false
