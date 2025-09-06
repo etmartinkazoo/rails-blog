@@ -1,18 +1,19 @@
 source "https://rubygems.org"
+ruby "3.4.5"
 gem "bcrypt"
 gem "bootsnap", require: false
 gem "image_processing"
 gem "importmap-rails"
 gem "propshaft"
 gem "puma"
-gem "rails", "~> 8.0.0"
+gem "pundit"
+gem "rails", "~> 8.1.0.beta1"
 gem "solid_queue"
 gem "sqlite3"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
-gem "pundit"
-ruby "3.4.2"
+gem 'lexxy', '~> 0.1.3.beta'
 
 group :development do
   gem "rubocop-rails-omakase", require: false

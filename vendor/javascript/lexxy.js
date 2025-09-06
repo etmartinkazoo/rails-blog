@@ -1,0 +1,4 @@
+// lexxy@0.4.0 downloaded from https://ga.jspm.io/npm:lexxy@0.4.0/index.js
+
+var t="undefined"!==typeof globalThis?globalThis:"undefined"!==typeof self?self:global;var e={};e=function(){(this||t).types=[];(this||t).type=function(n,i){var s=new e.TokenType(n,i);(this||t).types.push(s);return s};(this||t).lex=function(t){var e=[];for(var n=0;n<t.length;){var i=this.match(t.substr(n));if(void 0!==i){i.offset=n;e.push(i);n+=i.data[0].length}else++n}return e};(this||t).match=function(n){for(var i in(this||t).types){var s=n.match((this||t).types[i].exp);if(void 0!==s&&null!=s)return new e.Token((this||t).types[i],s)}}};e.TokenType=function(e,n){(this||t).name=e;(this||t).exp=n};e.Token=function(e,n){(this||t).type=e;(this||t).data=n;(this||t).toString=function(){return(this||t).type+" "+(this||t).data}};var n=e;var i={};i={Lexer:n};var s=i;const r=i.Lexer;export default s;export{r as Lexer};
+
