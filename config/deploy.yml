@@ -8,8 +8,6 @@ servers:
 builder:
   arch:
     - amd64
-  remote: ssh://root@178.156.154.90
-  local: false
 
 proxy:
   ssl: true
@@ -18,7 +16,6 @@ proxy:
 
 registry:
   username: etmartinkazoo
-
   password:
     - KAMAL_REGISTRY_PASSWORD
 
