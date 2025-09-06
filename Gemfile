@@ -13,7 +13,7 @@ gem "sqlite3"
 gem "stimulus-rails"
 gem "turbo-rails"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
-gem 'lexxy', '~> 0.1.3.beta'
+gem 'lexxy'
 
 group :development do
   gem "rubocop-rails-omakase", require: false

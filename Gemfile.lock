@@ -352,7 +352,7 @@ DEPENDENCIES
   debug
   image_processing
   importmap-rails
-  lexxy (~> 0.1.3.beta)
+  lexxy
   propshaft
   puma
   pundit
