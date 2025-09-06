@@ -6,8 +6,7 @@
         <%= form.text_field :name %>
         <% if post.errors[:name].present? %><p class="error"><%= "Name #{post.errors[:name][0]}" %></p><% end %>
       </div>
-Hi
-      <div class="form-group lexxy-content">
+     <div class="form-group lexxy-content">
         <%= form.label :content %>
         <%= form.rich_textarea :content %>
         <% if post.errors[:content].present? %><p class="error"><%= "Content #{post.errors[:content][0]}" %></p><% end %>
